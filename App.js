@@ -1,6 +1,7 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View, Image, Button } from 'react-native'
 import axios from 'axios'
+import Spinner from 'react-native-loading-spinner-overlay'
 
 
 export default class App extends React.Component {
@@ -37,6 +38,7 @@ export default class App extends React.Component {
     }
     return (
       <View style={styles.container}>
+        <Spinner visible={this.state.loading} />
         <Image source={pic} style={styles.image}/>
         <Button
           onPress={this.getBeagle.bind(this)}
