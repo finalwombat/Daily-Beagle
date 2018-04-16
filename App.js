@@ -18,9 +18,9 @@ export default class App extends React.Component {
         axios.get(url).then((result) => {
         
             const photos = result.data.photos.photo
-            const photo = photos[Math.floor(Math.random() * Math.random(photos.length -  1))]
+            const photo = photos[Math.floor(Math.random() * photos.length -  1)]
             console.log(photo)
-            const uri = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`
+            const uri = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_n.jpg`
             self.setState({url: uri})
             console.log(self.state)
     
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
-    width: 193,
-    height: 110
+    width: 350,
+    height: 400
   }
 });
