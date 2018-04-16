@@ -33,11 +33,15 @@ export default class App extends React.Component {
     
   }
   render() {
+    // let header = {
+    //   uri: {require('/home/jay/Documents/2018/projects/dailyBeagle/dailybeagle.png')}
+    // }
     let pic = {
       uri: this.state.url
     }
     return (
       <View style={styles.container}>
+          <Image source={require('/home/jay/Documents/2018/projects/dailyBeagle/dailybeagle.png')} style={styles.header} />
         <Spinner visible={this.state.loading} />
         <Image source={pic} style={styles.image}/>
         <Button
@@ -56,10 +60,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 10
+  },
+  header: {
+    width: 380,
+    height: 150,
   },
   image: {
     width: 350,
-    height: 400
+    height: 400,
+    marginBottom: 10
   }
 });
