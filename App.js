@@ -16,17 +16,18 @@ export default class App extends React.Component {
     const url = `https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=91ba73ffd2ac68160f449dcff46eeedb&group_id=93217210%40N00&page=${page}&format=json&nojsoncallback=1`
     const self = this
     
+    this.setState({loading: true})
         axios.get(url).then((result) => {
         
             const photos = result.data.photos.photo
             const photo = photos[Math.floor(Math.random() * photos.length -  1)]
             console.log(photo)
             const uri = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_n.jpg`
-            self.setState({url: uri})
-            console.log(self.state)
+            self.setState({url: uri , loading: false})
     
          }).catch((err) => {
              console.log(err)
+             self.setState({loading: false})
          })
     
   }
@@ -40,6 +41,7 @@ export default class App extends React.Component {
         <Button
           onPress={this.getBeagle.bind(this)}
           title="Get Beagle"
+          disabled={this.state.loading}
         />
       </View>
     );
