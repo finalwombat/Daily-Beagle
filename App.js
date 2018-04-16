@@ -9,7 +9,7 @@ export default class App extends React.Component {
     this.state = {url: ''}
   }
 
-  getUri() {
+  getBeagle() {
     const pages = 359
     const page = Math.floor(Math.random() * Math.floor(pages))
     const url = `https://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=91ba73ffd2ac68160f449dcff46eeedb&group_id=93217210%40N00&page=${page}&format=json&nojsoncallback=1`
@@ -37,7 +37,7 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <Image source={pic} style={styles.image}/>
         <Button
-          onPress={this.getUri.bind(this)}
+          onPress={this.getBeagle.bind(this)}
           title="Get Beagle"
         />
       </View>
